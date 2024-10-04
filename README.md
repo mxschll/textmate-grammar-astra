@@ -2,7 +2,7 @@
 
 The `astra.tmbundle` provides syntax highlighting for ASTRA in editors that
 support TextMate bundles, such as IntelliJ and TextMate. This is an
-automated build generated from the original [ASTRA VSCode
+(semi)automated build generated from the original [ASTRA VSCode
 plugin](https://gitlab.com/astra-language/vscode-language-astra).
 
 ## Download
