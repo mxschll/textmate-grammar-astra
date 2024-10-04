@@ -45,7 +45,6 @@ if [ "$EXT" == "json" ]; then
     const json = fs.readFileSync('$FILENAME', 'utf8');
     const obj = JSON.parse(json);
 
-    // Add the 'fileTypes' key as requested
     obj['fileTypes'] = ['astra'];
 
     const xml = plist.build(obj);
@@ -65,7 +64,7 @@ cat > "$BUNDLE_NAME/info.plist" <<EOL
 <plist version="1.0">
 <dict>
    <key>CFBundleIdentifier</key>
-   <string>com.astra.language</string>
+   <string>com.astralanguage</string>
    <key>CFBundleName</key>
    <string>ASTRA</string>
    <key>CFBundleVersion</key>
