@@ -1,18 +1,12 @@
 # ASTRA Syntax Highlighting for IntelliJ and TextMate
 
-The `astra.tmbundle` provides syntax highlighting for ASTRA in editors that
-support TextMate bundles, such as IntelliJ and TextMate. This is an
-(semi)automated build generated from the original [ASTRA VSCode
-plugin](https://gitlab.com/astra-language/vscode-language-astra).
+Syntax highlighting for ASTRA in editors that support TextMate bundles, such 
+as IntelliJ and TextMate.
 
-## Download
+This is a (semi)automated build generated from the original 
+[ASTRA VSCode plugin](https://gitlab.com/astra-language/vscode-language-astra).
 
-The latest version of the `astra.tmbundle` can be downloaded from the
-[Releases](https://github.com/mxschll/textmate-grammar-astra/releases) section
-of this GitHub repository.
-
-- **Download Link**:
-  [astra.tmbundle.zip](https://github.com/mxschll/textmate-grammar-astra/releases/latest/download/astra.tmbundle.zip)
+![ASTRA Syntax Highlighting Example](./screenshot.png)
 
 ## Installation Instructions
 
@@ -52,4 +46,4 @@ of this GitHub repository.
 3. **Reload Bundles**
 
    - In TextMate, go to `Bundles` > `Bundle Editor` > `Reload Bundles` to
-     refresh the bundle list.
+           refresh the bundle list.
