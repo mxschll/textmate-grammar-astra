@@ -1,0 +1,35 @@
+name: Build TextMate Bundle
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y uuid-runtime jq
+
+      - name: Run Script
+        run: |
+          chmod +x ./build_textmate_bundle.sh
+          ./create_textmate_bundle.sh
+
+      - name: Upload TextMate Bundle
+        uses: actions/upload-artifact@v3
+        with:
+          name: astra_bundle
+          path: astra.tmbundle
