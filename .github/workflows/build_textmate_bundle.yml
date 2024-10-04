@@ -1,12 +1,12 @@
-name: Build TextMate Bundle
+name: Build and Release TextMate Bundle
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    tags:
+      - 'v*.*.*'
 
 jobs:
-  build:
+  build-and-release:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,8 +28,27 @@ jobs:
           chmod +x ./build_textmate_bundle.sh
           ./build_textmate_bundle.sh
 
-      - name: Upload TextMate Bundle
-        uses: actions/upload-artifact@v3
+      - name: Zip the Bundle
+        run: |
+          zip -r astra.tmbundle.zip astra.tmbundle
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: astra_bundle
-          path: astra.tmbundle
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./astra.tmbundle.zip
+          asset_name: astra.tmbundle.zip
+          asset_content_type: application/zip
