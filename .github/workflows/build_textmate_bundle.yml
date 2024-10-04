@@ -26,7 +26,7 @@ jobs:
       - name: Run Script
         run: |
           chmod +x ./build_textmate_bundle.sh
-          ./create_textmate_bundle.sh
+          ./build_textmate_bundle.sh
 
       - name: Upload TextMate Bundle
         uses: actions/upload-artifact@v3
